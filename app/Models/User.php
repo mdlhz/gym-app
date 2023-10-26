@@ -47,4 +47,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(ScheduledClass::class, 'instructor_id');
     }
+
+    public function bookings(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    {
+        return $this->belongsToMany(ScheduledClass::class, 'bookings');
+    }
 }
